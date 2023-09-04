@@ -1,0 +1,35 @@
+# General
+auto-reload yes
+confirm-mark-feed-read no
+
+# Macros
+browser "xdg-open %u" 
+macro , open-in-browser
+macro o set browser "setsid -f mpv --force-window" ; open-in-browser-and-mark-read; set browser "xdg-open %u"
+macro d set browser "setsid -f yt-dlp %u"; open-in-browser-and-mark-read; set browser "xdg-open %u"
+
+# Bindings
+
+unbind-key ENTER
+
+bind-key q hard-quit
+bind-key H home
+bind-key L end
+bind-key u pageup
+bind-key d pagedown
+bind-key / goto-title
+
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+
+# Colors
+
+color info		    white color201
+color listnormal	    white default
+color listfocus		    white color201 bold
+color listnormal_unread	    cyan default
+color listfocus_unread	    cyan color201 bold
+color article		    white black
+color hint-key		    white color201 bold

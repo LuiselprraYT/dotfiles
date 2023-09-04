@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# mpstat | awk -F. 'FNR==4{print ($NF>0?100-$NF:$NF)"%"}'
+# top -bn 1 | awk '/^%Cpu/ {print int($2 + $4 + $6)" %"}'
+top -bn1 | grep "Cpu(s)" | \
+         sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
+         awk '{print " "100 - $1"%"}'

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xdotool type $(grep -v '^#' $HOME/.local/etc/bookmarks | dmenu -c -bw 2 -i -l 50)

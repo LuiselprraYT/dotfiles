@@ -1,0 +1,14 @@
+[Default Applications]
+application/pdf=zathura.desktop
+inode/directory=nnn.desktop
+image/gif=nsxiv.desktop
+image/png=nsxiv.desktop
+image/jpeg=nsxiv.desktop
+image/svg+xml=nsxiv.desktop
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+text/css=nvim.desktop
+text/javascript=nvim.desktop
+
+[Added Associations]
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;zathura.desktop;

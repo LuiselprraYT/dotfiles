@@ -1,0 +1,1 @@
+/home/luiselprrayt/code/suckless/dwm/layoutmenu.sh

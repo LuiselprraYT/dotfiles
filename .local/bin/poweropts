@@ -1,0 +1,10 @@
+#!/bin/sh
+
+value=$(echo "Cancel\nShutdown\nReboot\nRestart DWM\nExit DWM" | dmenu -i -p "Choose an option")
+
+case $value in
+	"Shutdown") mpv --fullscreen --no-osc $HOME/Videos/win-shutdown.mp4 && loginctl poweroff 0 ;;
+	"Reboot") mpv --fullscreen --no-osc $HOME/Videos/win-shutdown.mp4 && loginctl reboot ;;
+	"Restart DWM") kill -HUP $(pidof dwm) ;;
+	"Exit DWM") kill -TERM $(pidof dwm) ;;
+esac

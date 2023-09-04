@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DEFAULT_ROUTE=$(ip route show default | awk '/default/ {print $3}')
+ping -c1 $DEFAULT_ROUTE > /dev/null 2>&1
+
+if [ "$?" -gt 0 ] ; then
+    echo "󰪎"
+else
+    echo "󰖟"
+fi

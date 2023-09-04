@@ -1,0 +1,18 @@
+#!/bin/sh
+
+file="$HOME/.local/etc/bookmarks"
+rssfile="$HOME/.config/newsboat/urls"
+
+opt=$(echo "Insert new entry\nInsert new entry to newsboat\nRemove an entry" | dmenu -c -bw 2 -i -l 3)
+
+case $opt in
+    "Insert new entry")
+	dmenu -p "Type a new entry" < /dev/null >> $file ;;  
+    "Remove an entry")
+	entry=$(grep -v '^#' $file | dmenu -c -bw 2 -i -l 50)
+	linenum=$(grep -n $entry $file | awk -F":" '{ print $1 }')
+	sed -i "${linenum}d" $file
+    ;;
+    "Insert new entry to newsboat")
+	dmenu -p "Type a new entry" < /dev/null >> $rssfile ;;
+esac
