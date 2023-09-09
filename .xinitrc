@@ -7,8 +7,8 @@ xset r rate 500 75
 
 gentoo-pipewire-launcher &
 mpd
-dwmblocks &
 xcompmgr -n &
+dwmblocks &
 
 mpv --fullscreen --no-osc ~/Videos/win-startup.mp4 &
 

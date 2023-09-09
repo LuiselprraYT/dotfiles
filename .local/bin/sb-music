@@ -1,5 +1,7 @@
 #!/bin/sh
 
 pidof -x sb-mpdup > /dev/null 2>&1 || sb-mpdup > /dev/null 2>&1 & 
+pidof -x sb-marquee > /dev/null 2>&1 || sb-marquee > /dev/null 2>&1 & 
 
-echo 󰎆 $(mpc status | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
+cat $HOME/.cache/music_state
+# echo 󰎆 $(mpc status | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)

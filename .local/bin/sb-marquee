@@ -1,0 +1,23 @@
+#!/bin/sh
+
+i=0
+while : ; do
+    np=$(mpc status | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/󰐊/g;/^ERROR/Q" | paste -sd ' ' -)
+    chars=$(echo $np | wc -c | awk '{ print $1 }')
+    if [ $chars -ge 45 ] ; then
+	MUSIC_TEXT=$(echo "${np} - ${np} - ${np}" | sed -e "s/^.\{${i}\}//g" | cut -b -45)
+
+    	echo "󰎆 ${MUSIC_TEXT}" > $HOME/.cache/music_state
+    	sleep 0.5
+
+    	if [ $i = $chars ] ; then
+    	    i=2
+    	else
+    	    i=$(( i + 1 ))
+    	fi
+	kill -52 $(pidof dwmblocks)
+    else
+	echo 󰎆 $np > $HOME/.cache/music_state
+	sleep 0.5
+    fi
+done

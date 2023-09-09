@@ -33,6 +33,7 @@ startup_screen = visualizer
 progressbar_look = ->
 playlist_show_remaining_time = yes
 
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%file%' current)" #"$(mpc --format '%title% \n%artist% - %album%' current)"
 use_console_editor = yes
 ask_before_clearing_playlists = no
 clock_display_seconds = yes
