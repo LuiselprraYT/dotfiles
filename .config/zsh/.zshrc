@@ -1,6 +1,6 @@
 # zsh config
 
-source "$HOME/.local/etc/aliasrc"
+source "/home/luiselprrayt/.local/etc/aliasrc"
 
 # colors
 autoload -U colors && colors

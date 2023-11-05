@@ -20,6 +20,8 @@ lua require('nvim-highlight-colors').setup()
 
 colorscheme natsuki_dark
 
+command! -nargs=0 Sw w !doas tee % > /dev/null
+
 nnoremap <C-n> :NnnPicker<CR>
 
 map <C-h> <C-w>h

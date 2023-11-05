@@ -159,18 +159,18 @@
 #
 def_key "k"
   scroll_up
-#
+
 def_key "shift-k"
   select_item
   scroll_up
-#
+
 def_key "j"
   scroll_down
-#
+
 def_key "shift-j"
   select_item
   scroll_down
-#
+
 #def_key "["
 #  scroll_up_album
 #
@@ -183,18 +183,18 @@ def_key "shift-j"
 #def_key "}"
 #  scroll_down_artist
 #
-def_key "u"
+def_key "ctrl-u"
   page_up
-#
-def_key "d"
+
+def_key "ctrl-d"
   page_down
-#
+
 def_key "g"
   move_home
-#
+
 def_key "G"
   move_end
-#
+
 #def_key "insert"
 #  select_item
 #
@@ -234,11 +234,11 @@ def_key "l"
 def_key "l"
   slave_screen
 #
-def_key "l"
-  volume_up
-#
-#def_key "+"
+#def_key "l"
 #  volume_up
+#
+def_key "="
+  volume_up
 #
 def_key "h"
   previous_column
@@ -246,11 +246,11 @@ def_key "h"
 def_key "h"
   master_screen
 #
-def_key "h"
-  volume_down
-#
-#def_key "-"
+#def_key "h"
 #  volume_down
+#
+def_key "-"
+  volume_down
 #
 #def_key ":"
 #  execute_command
@@ -297,7 +297,7 @@ def_key "h"
 #def_key "8"
 #  show_visualizer
 #
-#def_key "="
+#def_key "9"
 #  show_clock
 #
 #def_key "@"
@@ -474,18 +474,18 @@ def_key "ctrl-l"
 #def_key "C"
 #  crop_main_playlist
 #
-#def_key "m"
-#  move_sort_order_up
-#
-#def_key "m"
-#  move_selected_items_up
-#
-#def_key "n"
-#  move_sort_order_down
-#
-#def_key "n"
-#  move_selected_items_down
-#
+def_key "ctrl-k"
+  move_sort_order_up
+
+def_key "ctrl-k"
+  move_selected_items_up
+
+def_key "ctrl-j"
+  move_sort_order_down
+
+def_key "ctrl-j"
+  move_selected_items_down
+
 #def_key "M"
 #  move_selected_items_to
 #
@@ -546,6 +546,6 @@ def_key "ctrl-l"
 #def_key "ctrl-p"
 #  set_selected_items_priority
 #
-#def_key "q"
-#  quit
-#
+def_key "q"
+  quit
+

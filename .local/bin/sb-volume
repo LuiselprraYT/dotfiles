@@ -1,8 +1,9 @@
 #!/bin/sh
 
 vol=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
+music_vol=$(mpc volume | awk -F':' '{ print $2 }' | sed 's/ //')
 checkmute=$(amixer get Master | tail -2 | grep -c '\[on\]')
 [ $checkmute = 0 ] && echo 󰝟 $vol && exit
 [ $vol = "0%" ] && echo 󰝟 0% && exit
 
-echo 󰕾 $vol
+echo "󰕾 $vol ($music_vol)"
