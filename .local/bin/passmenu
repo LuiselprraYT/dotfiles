@@ -8,6 +8,11 @@ typeit=1
 # 	shift
 # fi
 
+if [[ $1 == "--otp" ]]; then
+	otp=1
+	shift
+fi
+
 if [[ -n $WAYLAND_DISPLAY ]]; then
 	dmenu=dmenu-wl
 	xdotool="ydotool type --file -"
@@ -24,11 +29,19 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" -c -bw 2 -i -l 50 "$@")
+if [[ $otp -eq 0 ]]; then
+	mode="Choose a password:"
+else
+	mode="Choose a OTP Code:"
+fi
+
+password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" -c -p "$mode" -bw 2 -i -l 50 "$@")
 
 [[ -n $password ]] || exit
 
-if [[ $typeit -eq 0 ]]; then
+if [[ $otp -eq 1 ]]; then
+	pass otp "$password" 2>/dev/null | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
+elif [[ $typeit -eq 0 ]]; then
 	pass show -c "$password" 2>/dev/null
 else
 	pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
