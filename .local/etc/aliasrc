@@ -3,5 +3,5 @@ alias vim="nvim"
 alias vimdiff="nvim -d"
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts"
 alias sudo="doas"
-alias nsxiv="nsxiv -a"
+alias nsxiv="nsxiv -a -p"
 alias dtfs='git --git-dir=/home/luiselprrayt/.dotrepo --work-tree=/home/luiselprrayt'

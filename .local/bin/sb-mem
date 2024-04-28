@@ -1,6 +1,6 @@
 #!/bin/sh
 
-total=$(free -h | awk '/^Mem/ { print " "$3"/"$2 }' | sed s/i//g)
+total=$(free -h | awk '/^Mem/ { print " "$3"/"$2 }' | sed s/i//g)
 per=$(free | awk '/^Mem/ { printf " (%.0f%%)", $3/$2 * 100.0  }' | sed s/i//g)
 
 echo $total $per
