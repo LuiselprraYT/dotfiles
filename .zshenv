@@ -2,7 +2,6 @@
 
 # Default Variables
 export EDITOR="nvim"
-export PATH="$HOME/.local/bin/:$PATH"
 
 # XDG Base Directories
 export XDG_CONFIG_HOME="$HOME/.config"
