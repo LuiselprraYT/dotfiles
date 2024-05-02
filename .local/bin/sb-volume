@@ -1,9 +1,25 @@
 #!/bin/sh
 
-vol=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
-music_vol=$(mpc volume | awk -F':' '{ print $2 }' | sed 's/ //')
-checkmute=$(amixer get Master | tail -2 | grep -c '\[on\]')
-[ $checkmute = 0 ] && echo 󰝟 $vol && exit
-[ $vol = "0%" ] && echo 󰝟 0% && exit
+togglemus=1
 
-echo "󰕾 $vol ($music_vol)"
+if [ $(command -v amixer) != '' ]; then
+    vol=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
+    muted=$(amixer get Master | tail -2 | grep -c '\[off\]')
+elif [ $(command -v pactl) != '' ]; then
+    vol=$(pactl get-sink-volume $(pactl get-default-sink) | awk -F" / " '/front-left/ { print $4 }' | cut -c2-)
+    muted=$(pactl get-sink-mute $(pactl get-default-sink) | grep -c 'no')
+fi
+
+if [ $togglemus -eq 1 ]; then
+    music_vol=$(mpc volume | awk -F':' '{ print $2 }' | sed 's/ //')
+    [ $muted -ne 0 ] && echo "󰝟 $vol ($music_vol)" && exit
+    [ $vol = '0%' ] && echo "󰝟 0% ($music_vol)" && exit
+
+    echo "󰕾 $vol ($music_vol)"
+else
+    [ $muted -ne 0 ] && echo "󰝟 $vol" && exit
+    [ $vol = '0%' ] && echo "󰝟 0%" && exit
+
+    echo "󰕾 $vol"
+fi
+
