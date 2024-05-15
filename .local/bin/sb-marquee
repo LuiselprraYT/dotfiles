@@ -11,9 +11,9 @@ while : ; do
     	sleep 0.5
 
 	if [ $i -eq $chars ] ; then
-    	    i=2
+    	    i=1
     	else
-	    i=$(( i + 1 ))
+	    i=$(expr $i + 1)
     	fi
 	kill -52 $(pidof dwmblocks)
     else
