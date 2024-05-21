@@ -1,0 +1,12 @@
+#!/bin/sh
+
+opt=$(echo "[]= Tiled\n><> Floating\n### Grid\nTTT Vertical stack\n=== Vertical horizontal\n[M] Monocle" | dmenu -c -bw 2 -i -l 50)
+
+case $opt in
+    "[]= Tiled") xsetroot -name "fsignal:1" ;;
+    "><> Floating") xsetroot -name "fsignal:2" ;;
+    "### Grid") xsetroot -name "fsignal:3" ;;
+    "TTT Vertical stack") xsetroot -name "fsignal:4" ;;
+    "=== Vertical horizontal") xsetroot -name "fsignal:5" ;;
+    "[M] Monocle") xsetroot -name "fsignal:6" ;;
+esac
