@@ -29,13 +29,21 @@ current_item_prefix = $(magenta)$r
 main_window_color = white
 progressbar_elapsed_color = magenta:b
 
+## lyrics settings
+
+lyrics_fetchers = genius
+follow_now_playing_lyrics = yes
+fetch_lyrics_for_current_song_in_background = yes
+
 ## misc settings
 
-startup_screen = visualizer
+startup_screen = playlist
+startup_slave_screen = visualizer
 progressbar_look = ->
 playlist_show_remaining_time = yes
+ignore_diacritics = yes
 
-execute_on_song_change = notify-send "󰎆 Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" # "$(mpc --format '%file%' current)"
+execute_on_song_change = notify-send -i $(getalbumart) "󰎆 Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" # "$(mpc --format '%file%' current)"
 use_console_editor = yes
 ask_before_clearing_playlists = no
 clock_display_seconds = yes
