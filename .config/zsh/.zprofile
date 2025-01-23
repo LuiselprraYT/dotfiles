@@ -7,4 +7,5 @@ export NNN_PLUG="t:preview-tui;n:imgview"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_TERMINAL="st"
 
+gentoo-pipewire-launcher &
 startx

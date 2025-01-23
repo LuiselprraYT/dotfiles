@@ -2,6 +2,11 @@
 
 source "/home/luiselprrayt/.local/etc/aliasrc"
 
+# syntax colors
+typeset -A ZSH_HIGHLIGHT_STYLES
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=magenta,bold'
+
 # colors
 autoload -U colors && colors
 PROMPT="[%F{201}%n%f%B@%b%F{201}%m%f %~] %B%F{201}$%f%b "
