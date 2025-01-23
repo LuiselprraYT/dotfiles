@@ -5,3 +5,9 @@ pidof -x sb-marquee > /dev/null 2>&1 || sb-marquee > /dev/null 2>&1 &
 
 cat $HOME/.cache/music_state
 # echo 󰎆 $(mpc status | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
+
+case $BLOCK_BUTTON in
+    1) mpc toggle ;;
+    2) st nvim /home/luiselprrayt/.local/bin/sb-music & ;;
+    3) st ncmpcpp & ;;
+esac

@@ -2,3 +2,8 @@
 
 df -h | 
     awk '/^\/dev\// { if ($6=="/") { print "󰋊 " $3"/"$2 " ("$5")" } }'
+
+case $BLOCK_BUTTON in
+    2) st nvim /home/luiselprrayt/.local/bin/sb-disk & ;;
+    3) st nnn /home/$USER & ;;
+esac

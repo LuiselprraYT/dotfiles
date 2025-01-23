@@ -23,3 +23,8 @@ else
     echo "󰕾 $vol"
 fi
 
+case $BLOCK_BUTTON in
+    1) amixer set Master toggle & ;;
+    2) st nvim /home/luiselprrayt/.local/bin/sb-volume & ;;
+    3) st pulsemixer & ;;
+esac
