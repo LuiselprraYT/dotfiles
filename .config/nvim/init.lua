@@ -18,12 +18,16 @@ vim.cmd("syntax enable")
 local vim = vim
 local Plug = vim.fn['plug#']
 
+-- initialize plugins
+
 vim.call('plug#begin')
     Plug 'Tsuzat/NeoSolarized.nvim'
     Plug 'luukvbaal/nnn.nvim'
     Plug 'brenoprata10/nvim-highlight-colors'
     Plug 'nvim-lualine/lualine.nvim'
 vim.call('plug#end')
+
+-- plugin config
 
 require('nnn').setup({
    explorer = {
@@ -71,3 +75,8 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "0", "g0")
 vim.keymap.set("n", "$", "g$")
+
+-- line manipulation
+
+vim.keymap.set("n", "<S-j>", ":move +1<CR>")
+vim.keymap.set("n", "<S-k>", ":move -2<CR>")
