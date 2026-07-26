@@ -1,6 +1,6 @@
 # zsh config
 
-source "/home/luiselprrayt/.local/etc/aliasrc"
+source "/home/$USER/.local/etc/aliasrc"
 
 # syntax colors
 typeset -A ZSH_HIGHLIGHT_STYLES
