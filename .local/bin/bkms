@@ -1,3 +1,4 @@
 #!/bin/sh
 
-xdotool type $(grep -v '^#' $HOME/.local/etc/bookmarks | dmenu -c -bw 2 -i -l 50)
+opt=$(grep -v '^#' $HOME/.local/etc/bookmarks | dmenu -c -bw 2 -i -l 50 | cut -d "#" -f1)
+xdotool type --delay 0 $opt
