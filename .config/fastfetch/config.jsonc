@@ -1,5 +1,20 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+	"source": "$HOME/.config/fastfetch/logo.txt",
+	"type": "file",
+	"color": {
+		"1": "38;2;0;0;0",
+		"2": "38;2;62;41;127",
+		"3": "38;2;212;29;133",
+		"5": "38;2;152;98;126",
+		"4": "38;2;252;46;0",
+		"6": "38;2;176;128;126",
+		"7": "38;2;255;97;232",
+		"8": "38;2;252;132;172",
+		"9": "white"
+	}
+  },
   "modules": [
     "title",
     "separator",
