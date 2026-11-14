@@ -5,7 +5,7 @@ vim.opt.relativenumber = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
@@ -17,10 +17,10 @@ vim.cmd("syntax enable")
 
 local data_dir = vim.fn.stdpath('data')
 if vim.fn.empty(vim.fn.glob(data_dir .. '/site/autoload/plug.vim')) == 1 then
-    vim.cmd('silent !curl -fLo ' ..
+	vim.cmd('silent !curl -fLo ' ..
 	data_dir ..
 	'/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-    vim.cmd('autocmd VimEnter * PlugInstall --sync | source $MYVIMRC')
+	vim.cmd('autocmd VimEnter * PlugInstall --sync | source $MYVIMRC')
 end
 
 local vim = vim
@@ -29,32 +29,47 @@ local Plug = vim.fn['plug#']
 -- initialize plugins
 
 vim.call('plug#begin')
-    Plug 'Tsuzat/NeoSolarized.nvim'
-    Plug 'luukvbaal/nnn.nvim'
-    Plug 'brenoprata10/nvim-highlight-colors'
-    Plug 'nvim-lualine/lualine.nvim'
+	Plug ('Tsuzat/NeoSolarized.nvim')
+	Plug ('initsyscall/themeInitNvim')
+	Plug ('luukvbaal/nnn.nvim')
+	Plug ('brenoprata10/nvim-highlight-colors')
+	Plug ('nvim-lualine/lualine.nvim')
 vim.call('plug#end')
 
 -- plugin config
 
 require('nnn').setup({
-   explorer = {
-	width = 32,
-   },
-   windownav = {
-       left = "<C-h>",
-       right = "<C-l>",
-   },
+	explorer = {
+		width = 32,
+	},
+	windownav = {
+		left = "<C-h>",
+		right = "<C-l>",
+	},
 })
 require('nvim-highlight-colors').setup()
 require('lualine').setup ({
-    options = {
-	section_separators = '',
-	component_separators = '',
-    },
+	options = {
+		section_separators = '',
+		component_separators = '',
+	},
 })
 
-vim.cmd("colorscheme NeoSolarized")
+require("themeInit").setup({ theme = "nightSyscall", transparent = true })
+
+vim.api.nvim_set_hl(0, "Normal",       { fg = "#f5d7f5" })
+vim.api.nvim_set_hl(0, "Comment",      { fg = "#9b4d91", italic = true })
+vim.api.nvim_set_hl(0, "Keyword",      { fg = "#ff00ff", bold = true })
+vim.api.nvim_set_hl(0, "Function",     { fg = "#ff3bd4" })
+vim.api.nvim_set_hl(0, "String",       { fg = "#ff69e6" })
+vim.api.nvim_set_hl(0, "Type",         { fg = "#d04cff" })
+vim.api.nvim_set_hl(0, "Constant",     { fg = "#ff1493" })
+vim.api.nvim_set_hl(0, "Identifier",   { fg = "#e88cff" })
+vim.api.nvim_set_hl(0, "Statement",    { fg = "#ff00cc" })
+vim.api.nvim_set_hl(0, "Special",      { fg = "#ff4fd8" })
+vim.api.nvim_set_hl(0, "CursorLine",   { bg = "#2a0d27" })
+vim.api.nvim_set_hl(0, "LineNr",       { fg = "#87417d" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff00ff", bold = true })
 
 ---- keybinds
 
