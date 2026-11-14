@@ -1,7 +1,6 @@
 alias ls="ls --color"
 alias ff="fastfetch"
-alias vim="nvim"
-alias vimdiff="nvim -d"
+[ -x $(which nvim) ] && alias vim="nvim" vimdiff="nvim -d"
 alias wget="wget --hsts-file=\$XDG_CACHE_HOME/wget-hsts"
 alias sudo="doas"
 alias nsxiv="nsxiv -a -p"
